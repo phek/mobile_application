@@ -1,10 +1,30 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+    font: 14px "Century Gothic", Futura, sans-serif;
+    color: #333333;
+    margin: 0;
 }
 
-.text {
-	border: 2px solid #000;
-	padding: 20px;
-	width: 100px;
+#menu {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #333;
+    color: #fff;
+    border-top: #444;
+}
+
+.menu_button {
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: calc(100% / 5 - 21px);
+    border-right: 1px solid #444;
+}
+
+.menu_button:last-child {
+    border-right: none;
+}
+
+.menu_text {
+    margin-top: 2px;
 }
