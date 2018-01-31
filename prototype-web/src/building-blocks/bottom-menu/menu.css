@@ -1,0 +1,25 @@
+#menu {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #333;
+    color: #fff;
+    border-top: #444;
+}
+
+.menu_button {
+    padding: 10px 5px;
+    display: inline-block;
+    text-align: center;
+    width: calc(100% / 5 - 11px);
+    border-right: 1px solid #444;
+}
+
+.menu_button:last-child {
+    border-right: none;
+}
+
+.menu_text {
+    margin-top: 2px;
+    font-size: 12px;
+}
