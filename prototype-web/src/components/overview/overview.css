@@ -1,13 +1,3 @@
-body {
-    font: 14px "Open Sans", "Century Gothic", Futura, sans-serif;
-    color: #333333;
-    margin: 0;
-}
-
-#content {
-    padding: 10px;
-}
-
 .note {
     border-radius: 6px;
     padding: 20px;
@@ -15,7 +5,8 @@ body {
     background-color: #fff8c9;
 }
 
-.note h3 {
+.note h1 {
+    font-weight: 600;
     margin: 0 0 10px;
 }
 

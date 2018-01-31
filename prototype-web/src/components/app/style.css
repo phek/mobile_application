@@ -1,0 +1,9 @@
+body {
+    font: 14px "Open Sans", "Century Gothic", Futura, sans-serif;
+    color: #333333;
+    margin: 0;
+}
+
+#content {
+    padding: 10px;
+}
