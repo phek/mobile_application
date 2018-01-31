@@ -56,16 +56,46 @@
 	margin-bottom: 10px;
 }
 
-.note h1 {
-    font-weight: 600;
-    margin: 0 0 10px;
+/*------------------------------------------*/
+
+.productivity { 
+	font-size: 20px;
+	display: inline-block;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	Width: 50%;
 }
 
-.note li {
-    border-top: 1px solid #d4cc99;
-    padding: 10px 0px;
+.days {
+	border: 1px solid #000;
+	
 }
 
-.note li:last-child {
-    border-bottom: 1px solid #d4cc99;
+
+
+.day {
+	display: inline-block;
+	width: calc(100%/7);
+	border-right: 1px solid #000;
 }
+
+.day:last-child {
+    border-right: none;
+	width: calc(100%/7);
+}
+
+.day-name {
+
+	text-align: center;
+	border-bottom: 1px solid #444;
+}
+
+.day-productivity {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+
