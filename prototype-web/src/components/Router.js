@@ -10,8 +10,8 @@ const Router = () => (
         <Switch>
             <Route exact path='/' component={Overview}/>
             <Route exact path='/map' component={Map}/>
-			<Route exact path='/statsday' component={StatsDay}/>
-			<Route exact path='/statsweek' component={StatsWeek}/>
+			<Route exact path='/stats/day' component={StatsDay}/>
+			<Route exact path='/stats/week' component={StatsWeek}/>
         </Switch>
     </main>
 );
