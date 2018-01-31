@@ -2,16 +2,44 @@
     border: 1px solid #000000;
     padding: 20px;
     background-color: #fff8c9;
-	height: 2000px;
-	width: calc(100% - 124px);
+	height: 1000px;
+	width: calc(100% - 164px);
 	display: inline-block;
 }
 
+.activity {
+	border: 1px solid #000000;
+	padding:20px;
+	margin:10px;
+}
+
+.activityText {
+	display: inline-block;
+}
+
+.checkBox {
+	display:inline-block;
+	font-size: 30px;
+	float: right;
+	margin-top: -5px;
+}
+
 #times {
-	height: 2000px;
-	width: 40px;
+	height: 1000px;
+	width: 80px;
 	padding: 20px;
 	display: inline-block;
+}
+
+.time {
+	border: 1px solid #ffffff;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding: 20px;
+}
+
+.text {
+	font-size: 16px;
 }
 
 

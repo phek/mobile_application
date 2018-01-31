@@ -11,14 +11,23 @@ const Stats = () => (
 			</div>
 			<div id="schedule">
 				<div id="times">
-					<div className="time">08:00</div>
-					<div className="time">08:00</div>
-					<div className="time">08:00</div>				
+					<div className="time text">08:00</div>
+					<div className="time text">08:00</div>
+					<div className="time text">08:00</div>
 				</div>
 				<div className="activityZone">
-					<div className="activity">Idle</div>
-					<div className="activity">Danger Zone</div>
-					<div className="activity">Project</div>
+					<div className="activity">
+						<div className="activityText text">Idle</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
+					<div className="activity">
+						<div className="activityText text">Idle</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
+					<div className="activity">
+						<div className="activityText text">Idle</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
 				</div>
 			</div>
         </div>
