@@ -9,14 +9,16 @@ class MapContainer extends React.Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const {google} = mapProps;
-                const marker = new google.maps.Marker({
-                    position: {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    },
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                new google.maps.Marker({
+                    position: pos,
                     map: map,
                     title: 'Hello World!'
                 });
+                map.setCenter(pos);
             });
         } else {
             //"Geolocation is not supported by this browser."
@@ -31,7 +33,6 @@ class MapContainer extends React.Component {
                     google={this.props.google}
                     onReady={this.placeMarker}
                     className="map"
-                    centerAroundCurrentLocation={true}
                 />
             </div>
         );

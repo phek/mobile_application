@@ -10,13 +10,13 @@ const BottomMenu = () => (
                 <div className="menu_text">Overview</div>
             </div>
         </Link>
-        <Link to='/'>
+        <Link to='/stats/day'>
             <div className="menu_button">
                 <i className="fas fa-chart-line"/>
                 <div className="menu_text">Statistics</div>
             </div>
         </Link>
-        <Link to='/stats/day'>
+        <Link to='/'>
             <div className="menu_button">
                 <i className="far fa-calendar"/>
                 <div className="menu_text">Planning</div>

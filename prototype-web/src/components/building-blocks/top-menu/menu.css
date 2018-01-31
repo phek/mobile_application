@@ -1,16 +1,16 @@
-#menuItem {
-	display:inline-block;
+.menuItem {
+    display: inline-block;
     padding: 20px;
-    width: calc(100%/3 - 41px);
+    width: calc(100% / 3 - 41px);
     background-color: #333;
     color: #fff;
     font-size: 20px;
     text-align: center;
     font-weight: 400;
-	border-right: 1px solid #444;
+    border-right: 1px solid #444;
 }
 
-#menuItem:last-child {
+a:last-child .menuItem {
     border-right: none;
-	width: calc(100%/3 - 40px);
+    width: calc(100% / 3 - 40px);
 }
