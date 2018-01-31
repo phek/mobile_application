@@ -1,12 +1,26 @@
 import React from 'react';
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, GoogleApiWrapper} from 'google-maps-react';
 import './map.css';
 import TitleBar from '../building-blocks/titlebar/TitleBar';
 
 class MapContainer extends React.Component {
 
-    constructor(props) {
-        super(props);
+    placeMarker(mapProps, map) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const {google} = mapProps;
+                const marker = new google.maps.Marker({
+                    position: {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    },
+                    map: map,
+                    title: 'Hello World!'
+                });
+            });
+        } else {
+            //"Geolocation is not supported by this browser."
+        }
     }
 
     render() {
@@ -15,14 +29,10 @@ class MapContainer extends React.Component {
                 <TitleBar title="Map"/>
                 <Map
                     google={this.props.google}
+                    onReady={this.placeMarker}
                     className="map"
-                    zoom={14} initialCenter={{
-                    lat: 59.4024341,
-                    lng: 17.9464824
-                }}
-                >
-                    <Marker name={'Current location'}/>
-                </Map>
+                    centerAroundCurrentLocation={true}
+                />
             </div>
         );
     }
