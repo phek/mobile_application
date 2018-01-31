@@ -40,10 +40,12 @@ const StatsWeek = () => (
 					<div className="day-productivity">60%</div>
 				</div>
 			</div>
-				<div className="Priority">Project 10h</div>
-				<div className="Priority">Project 10h</div>
-				<div className="Priority">Project 10h</div>
-			<div className="priorities"></div>
+			<div className="priorities">
+				<div className="priority">Project 10h</div>
+				<div className="priority">Danger Zone 15h</div>
+				<div className="priority">Homework 12h</div>
+				<div className="priority">Training 12h</div>
+			</div>
         </div>
     </div>
 );

@@ -68,7 +68,7 @@
 
 .days {
     border: 1px solid #000;
-
+	margin-bottom: 30px;
 }
 
 .day {
@@ -85,13 +85,27 @@
 .day-name {
 
     text-align: center;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #000;
 }
 
 .day-productivity {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.priorities {
+	height: 1000px;
+}
+
+.priority {
+	border: 1px solid #000;
+	margin: 10px;
+	width: 140px;
+	margin-left: calc(50% - 80px);
+	margin-right: 20px;
+	text-align: center;
+	padding: 10px;
 }
 
 
