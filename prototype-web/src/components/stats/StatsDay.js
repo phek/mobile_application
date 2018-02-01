@@ -22,31 +22,24 @@ const StatsDay = () => (
 				<div className="activityZone">
 					<div className="activity">
 						<div className="activityText text">Idle</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Project</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Homework</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Danger zone</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Training</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Idle</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Project</div>
-						<div className="far fa-check-square checkBox"/>
 					</div>
 				</div>
 			</div>
