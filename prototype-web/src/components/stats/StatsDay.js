@@ -14,6 +14,10 @@ const StatsDay = () => (
 					<div className="time text">08:00</div>
 					<div className="time text">10:00</div>
 					<div className="time text">12:00</div>
+					<div className="time text">15:00</div>
+					<div className="time text">18:00</div>
+					<div className="time text">20:00</div>
+					<div className="time text">21:00</div>
 				</div>
 				<div className="activityZone">
 					<div className="activity">
@@ -21,11 +25,27 @@ const StatsDay = () => (
 						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
-						<div className="activityText text">Idle</div>
+						<div className="activityText text">Project</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
+					<div className="activity">
+						<div className="activityText text">Homework</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
+					<div className="activity">
+						<div className="activityText text">Danger zone</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
+					<div className="activity">
+						<div className="activityText text">Training</div>
 						<div className="far fa-check-square checkBox"/>
 					</div>
 					<div className="activity">
 						<div className="activityText text">Idle</div>
+						<div className="far fa-check-square checkBox"/>
+					</div>
+					<div className="activity">
+						<div className="activityText text">Project</div>
 						<div className="far fa-check-square checkBox"/>
 					</div>
 				</div>

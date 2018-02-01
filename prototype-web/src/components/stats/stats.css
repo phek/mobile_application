@@ -1,7 +1,7 @@
 .activityZone {
     border: 1px solid #000000;
     padding: 20px;
-    background-color: #fff8c9;
+    background-color: #fff;
     height: 1000px;
     width: calc(100% - 164px);
     display: inline-block;
@@ -11,6 +11,7 @@
     border: 1px solid #000000;
     padding: 20px;
     margin: 10px;
+	background-color: #abb;
 }
 
 .activityText {
@@ -106,6 +107,7 @@
 	margin-right: 20px;
 	text-align: center;
 	padding: 10px;
+	background: #abb;
 }
 
 

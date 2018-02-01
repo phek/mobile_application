@@ -45,6 +45,7 @@ const StatsWeek = () => (
 				<div className="priority">Danger Zone 15h</div>
 				<div className="priority">Homework 12h</div>
 				<div className="priority">Training 12h</div>
+				<div className="priority">Idle 18h</div>
 			</div>
         </div>
     </div>
