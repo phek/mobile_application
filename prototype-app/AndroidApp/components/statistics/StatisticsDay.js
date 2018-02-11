@@ -1,7 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import {Header} from 'react-native-elements';
-
+import {StyleSheet, Text, View, ScrollView, TouchableHighlight} from 'react-native';
 
 export default class StatisticsDay extends React.Component {
     render() {
@@ -11,11 +9,21 @@ export default class StatisticsDay extends React.Component {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
             }}>
-                <Header
-                    backgroundColor="#333"
-                    centerComponent={{text: 'Statistics', style: {color: '#fff', fontSize: 18}}}
-                />
-                <View style={{flex: 1, backgroundColor: '#cdcdcd'}}/>
+                <View style={{height: 65, backgroundColor: '#333', flexDirection: 'row'}}>
+                    <TouchableHighlight
+                        style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#444'}}
+                        onPress={() => {
+                            this.props.navigation.navigate('StatsDay')
+                        }}>
+                        <Text style={styles.menuText}>Day</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight style={{flex: 1, alignItems: 'center', justifyContent: 'center',}}
+                                        onPress={() => {
+                                            this.props.navigation.navigate('StatsWeek')
+                                        }}>
+                        <Text style={styles.menuText}>Week</Text>
+                    </TouchableHighlight>
+                </View>
                 <View style={{flex: 4, flexDirection: 'row', backgroundColor: '#dbdbdb'}}>
                     <ScrollView style={{flex: 2, backgroundColor: '#cdcdcd'}}>
                         <View style={{flexDirection: 'row'}} padding={10}>
@@ -68,6 +76,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
+        color: '#cdcdcd'
+    },
+    menuText: {
+        fontSize: 20,
         color: '#cdcdcd'
     },
     activity: {
