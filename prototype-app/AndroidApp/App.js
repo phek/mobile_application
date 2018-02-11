@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import BottomBar from './components/bottom-bar/BottomBar';
 import Map from "./components/map/Map";
+import { Tabs } from './router';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -18,14 +19,7 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
     render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.content}>
-                    <Map/>
-                </View>
-                <BottomBar/>
-            </View>
-        );
+        return <Tabs/>;
     }
 }
 
