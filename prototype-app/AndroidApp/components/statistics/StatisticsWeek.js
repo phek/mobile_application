@@ -1,7 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View, ScrollView, TouchableHighlight} from 'react-native';
-import {Header} from 'react-native-elements';
-
 
 export default class StatisticsWeek extends React.Component {
     render() {
@@ -13,16 +11,23 @@ export default class StatisticsWeek extends React.Component {
             }}>
                 <View style={{height: 65, backgroundColor: '#333', flexDirection: 'row'}}>
                     <TouchableHighlight style={{flex: 1, alignItems: 'center', justifyContent: 'center',}}
-                                        onPress={() => {this.props.navigation.navigate('StatsDay')}}><Text style={styles.menuText}>Day</Text></TouchableHighlight>
-                    <TouchableHighlight style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#444'}}
-                                        onPress={() => {this.props.navigation.navigate('StatsWeek')}}><Text style={styles.menuText}>Week</Text></TouchableHighlight>
+                                        onPress={() => {
+                                            this.props.navigation.navigate('StatsDay')
+                                        }}><Text style={styles.menuText}>Day</Text></TouchableHighlight>
+                    <TouchableHighlight
+                        style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#444'}}
+                        onPress={() => {
+                            this.props.navigation.navigate('StatsWeek')
+                        }}><Text style={styles.menuText}>Week</Text></TouchableHighlight>
                 </View>
                 <View style={{flex: 1, flexDirection: 'row',}}>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text style={styles.text}>Productivity</Text></View>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text style={styles.text}>55%</Text></View>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text
+                        style={styles.text}>Productivity</Text></View>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text
+                        style={styles.text}>55%</Text></View>
                 </View>
                 <View style={{flex: 1, flexDirection: 'row',}}>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#999'}}>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
                         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
                         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
                     </View>
@@ -30,7 +35,7 @@ export default class StatisticsWeek extends React.Component {
                         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
                         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
                     </View>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#999'}}>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
                         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
                         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
                     </View>
@@ -38,7 +43,7 @@ export default class StatisticsWeek extends React.Component {
                         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
                         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
                     </View>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#999'}}>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
                         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
                         <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
                     </View>

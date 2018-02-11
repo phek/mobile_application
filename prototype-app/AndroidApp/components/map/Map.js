@@ -69,7 +69,7 @@ export default class Map extends Component {
             <View style={{flex: 1}}>
                 <Header
                     backgroundColor="#333"
-                    centerComponent={{text: 'Map', style: {color: '#fff'}}}
+                    centerComponent={{text: 'Map', style: {color: '#fff', fontSize: 18}}}
                 />
                 <View style={{flex: 1}}>
                     <MapView
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marker: {
         height: 20,
         width: 20,
-        borderWidth: 3,
+        borderWidth: 2,
         borderColor: '#fff',
         borderRadius: 20 / 2,
         overflow: 'hidden',

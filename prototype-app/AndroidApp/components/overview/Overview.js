@@ -8,7 +8,7 @@ export default class Overview extends Component {
             <View style={{flex: 1}}>
                 <Header
                     backgroundColor="#333"
-                    centerComponent={{text: 'Overview', style: {color: '#fff'}}}
+                    centerComponent={{text: 'Overview', style: {color: '#fff', fontSize: 18}}}
                 />
                 <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text style={styles.menuText}>Today's Priorities</Text></View>
                 <View style={{flex: 1}}>
