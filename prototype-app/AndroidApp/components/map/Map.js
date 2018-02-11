@@ -1,47 +1,63 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
 import MapView from 'react-native-maps';
+
+const {width, height} = Dimensions.get('window');
+
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class Map extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            mapRegion: null,
-            latitude: null,
-            longitude: null,
-            error: null,
+            initialPosition: {
+                latitude: 0,
+                longitude: 0,
+                latitudeDelta: 0,
+                longitudeDelta: 0
+            },
+            markerPosition: {
+                latitude: 0,
+                longitude: 0
+            }
         };
     }
 
-    componentDidMount() {
-        this.watchID = navigator.geolocation.watchPosition(
-            (position) => {
-                this.setState({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                    error: null,
-                });
-                let region = {
-                    latitude:       position.coords.latitude,
-                    longitude:      position.coords.longitude,
-                    latitudeDelta:  0.00922*1.5,
-                    longitudeDelta: 0.00421*1.5
-                }
-                this.onRegionChange(region, region.latitude, region.longitude);
-            },
-            (error) => this.setState({error: error.message}),
-            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
-        );
-    }
+    watchID: ?number = null;
 
-    onRegionChange(region, lastLat, lastLong) {
-        this.setState({
-            mapRegion: region,
-            lastLat: lastLat || this.state.lastLat,
-            lastLong: lastLong || this.state.lastLong
-        });
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                let lat = parseFloat(position.coords.latitude);
+                let long = parseFloat(position.coords.longitude);
+                let initialRegion = {
+                    latitude: lat,
+                    longitude: long,
+                    latitudeDelta: LATITUDE_DELTA,
+                    longitudeDelta: LONGITUDE_DELTA
+                };
+                this.setState({initialPosition: initialRegion});
+                this.setState({markerPosition: initialRegion});
+            },
+            (error) => alert(JSON.stringify(error)),
+            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000});
+
+        this.watchID = navigator.geolocation.watchPosition((position => {
+            let lat = parseFloat(position.coords.latitude);
+            let long = parseFloat(position.coords.longitude);
+            let lastRegion = {
+                latitude: lat,
+                longitude: long,
+                latitudeDelta: LATITUDE_DELTA,
+                longitudeDelta: LONGITUDE_DELTA
+            };
+            this.setState({initialPosition: lastRegion});
+            this.setState({markerPosition: lastRegion});
+        }));
     }
 
     componentWillUnmount() {
@@ -57,20 +73,12 @@ export default class Map extends Component {
                 />
                 <View style={{flex: 1}}>
                     <MapView
-                        style={{ flex: 1, width: "100%" }}
-                        region={this.state.mapRegion}
-                        showsUserLocation={true}
-                        followUserLocation={true}
-                        onRegionChange={this.onRegionChange.bind(this)}>
+                        style={{flex: 1, width: "100%"}}
+                        region={this.state.initialPosition}>
                         <MapView.Marker
-                            coordinate={{
-                                latitude: (this.state.lastLat + 0.00050) || -32.82339,
-                                longitude: (this.state.lastLong + 0.00050) || -33.03569,
-                            }}>
-                            <View>
-                                <Text style={{color: '#000'}}>
-                                    { this.state.lastLong } / { this.state.lastLat }
-                                </Text>
+                            coordinate={this.state.markerPosition}>
+                            <View style={styles.radius}>
+                                <View style={styles.marker}/>
                             </View>
                         </MapView.Marker>
                     </MapView>
@@ -79,3 +87,26 @@ export default class Map extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    radius: {
+        height: 50,
+        width: 50,
+        borderRadius: 50 / 2,
+        overflow: 'hidden',
+        backgroundColor: 'rgba(0, 122, 255, 0.1)',
+        borderWidth: 1,
+        borderColor: 'rgba(0, 112, 255, 0.3)',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    marker: {
+        height: 20,
+        width: 20,
+        borderWidth: 3,
+        borderColor: '#fff',
+        borderRadius: 20 / 2,
+        overflow: 'hidden',
+        backgroundColor: '#007AFF'
+    }
+});
