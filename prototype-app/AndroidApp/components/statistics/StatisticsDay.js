@@ -1,5 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Header} from 'react-native-elements';
+
 
 export default class StatisticsDay extends React.Component {
     render() {
@@ -9,6 +11,10 @@ export default class StatisticsDay extends React.Component {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
             }}>
+                <Header
+                    backgroundColor="#333"
+                    centerComponent={{text: 'Map', style: {color: '#fff'}}}
+                />
                 <View style={{flex: 1, backgroundColor: '#cdcdcd'}}/>
                 <View style={{flex: 4, flexDirection: 'row', backgroundColor: '#dbdbdb'}}>
                     <ScrollView style={{flex: 2, backgroundColor: '#cdcdcd'}}>
