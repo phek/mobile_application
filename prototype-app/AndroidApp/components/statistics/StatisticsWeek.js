@@ -42,31 +42,31 @@ export default class StatisticsWeek extends React.Component {
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={{flex: 1}}/>
                             <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.text}>Project 10h</Text></View>
+                                style={styles.prioText}>Project 10h</Text></View>
                             <View style={{flex: 1}}/>
                         </View>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={{flex: 1}}/>
                             <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.text}>Danger Zone 15h</Text></View>
+                                style={styles.prioText}>Danger Zone 15h</Text></View>
                             <View style={{flex: 1}}/>
                         </View>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={{flex: 1}}/>
                             <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.text}>Homework 12h</Text></View>
+                                style={styles.prioText}>Homework 12h</Text></View>
                             <View style={{flex: 1}}/>
                         </View>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={{flex: 1}}/>
                             <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.text}>Workout 10h</Text></View>
+                                style={styles.prioText}>Workout 10h</Text></View>
                             <View style={{flex: 1}}/>
                         </View>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={{flex: 1}}/>
                             <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.text}>Spanish 4h</Text></View>
+                                style={styles.prioText}>Spanish 4h</Text></View>
                             <View style={{flex: 1}}/>
                         </View>
                     </ScrollView>
@@ -87,6 +87,10 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20,
         color: '#222'
+    },
+    prioText: {
+        fontSize: 20,
+        color: '#eee',
     },
     menuText: {
         fontSize: 20,

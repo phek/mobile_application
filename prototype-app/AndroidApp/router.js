@@ -40,6 +40,7 @@
             navigationOptions: {
                 tabBarLabel: 'Overview',
                 tabBarIcon: () => <Icon type='entypo' name='home' color="#fff"/>,
+                headerLeft: null,
             }
         },
         Statistics:{
