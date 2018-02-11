@@ -13,7 +13,7 @@ export default class StatisticsDay extends React.Component {
             }}>
                 <Header
                     backgroundColor="#333"
-                    centerComponent={{text: 'Map', style: {color: '#fff'}}}
+                    centerComponent={{text: 'Statistics', style: {color: '#fff', fontSize: 18}}}
                 />
                 <View style={{flex: 1, backgroundColor: '#cdcdcd'}}/>
                 <View style={{flex: 4, flexDirection: 'row', backgroundColor: '#dbdbdb'}}>
