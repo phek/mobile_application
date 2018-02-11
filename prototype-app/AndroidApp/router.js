@@ -1,27 +1,37 @@
     import React from 'react';
-    import {TabNavigator, TabBarBottom, StackNavigator} from 'react-navigation';
+    import {TabNavigator, TabBarBottom, TabBarTop} from 'react-navigation';
     import {Icon} from 'react-native-elements';
 
     import Overview from './components/overview/Overview';
-    import StatisticsDay from './components/statistics/StatisticsDay';
     import Planning from './components/planning/Planning';
     import Map from './components/map/Map';
     import Settings from './components/settings/Settings';
+    import Statistics from './components/statistics/Statistics';
+    import StatisticsDay from './components/statistics/StatisticsDay';
     import StatisticsWeek from "./components/statistics/StatisticsWeek";
 
-    export const StatStack = StackNavigator({
-       StatsDay: {
-           screen: StatisticsDay,
-           navigationOptions: {
-               title: 'Day',
-           }
-       },
-       StatsWeek: {
-           screen: StatisticsWeek,
-           navigationOptions: {
-               title: 'Week',
-           }
-       }
+    export const Tabs2 = TabNavigator({
+        StatsDay: {
+            screen: StatisticsDay,
+            navigationOptions: {
+                tabBarLabel: 'Day',
+            }
+        },
+        StatsWeek: {
+            screen: StatisticsWeek,
+            navigationOptions: {
+                tabBarLabel: 'Week',
+            }
+        }
+    },{
+        tabBarComponent: TabBarTop,
+        tabBarPosition: 'top',
+        swipeEnabled: false,
+        animationEnabled: false,
+        tabBarOptions: {
+            labelStyle: { color: '#fff',},
+            style: {backgroundColor: '#333'}
+        },
     });
 
     export const Tabs = TabNavigator({
@@ -32,8 +42,8 @@
                 tabBarIcon: () => <Icon type='entypo' name='home' color="#fff"/>,
             }
         },
-        StatisticsDay:{
-            screen: StatStack,
+        Statistics:{
+            screen: Statistics,
             navigationOptions: {
                 tabBarLabel: 'Statistics',
                 tabBarIcon: () => <Icon type='entypo' name='area-graph' color="#fff"/>,
@@ -63,9 +73,11 @@
     },{
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
+        swipeEnabled: false,
+        animationEnabled: false,
         tabBarOptions: {
             inactiveBackgroundColor: '#333',
             activeBackgroundColor: '#444',
             labelStyle: { color: '#fff',},
         },
-    })
+    });
