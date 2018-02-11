@@ -1,5 +1,5 @@
     import React from 'react';
-    import {TabNavigator, TabBarBottom} from 'react-navigation';
+    import {TabNavigator, TabBarBottom, StackNavigator} from 'react-navigation';
     import {Icon} from 'react-native-elements';
 
     import Overview from './components/overview/Overview';
@@ -7,7 +7,22 @@
     import Planning from './components/planning/Planning';
     import Map from './components/map/Map';
     import Settings from './components/settings/Settings';
+    import StatisticsWeek from "./components/statistics/StatisticsWeek";
 
+    export const StatStack = StackNavigator({
+       StatsDay: {
+           screen: StatisticsDay,
+           navigationOptions: {
+               title: 'Day',
+           }
+       },
+       StatsWeek: {
+           screen: StatisticsWeek,
+           navigationOptions: {
+               title: 'Week',
+           }
+       }
+    });
 
     export const Tabs = TabNavigator({
         Overview: {
@@ -18,7 +33,7 @@
             }
         },
         StatisticsDay:{
-            screen: StatisticsDay,
+            screen: StatStack,
             navigationOptions: {
                 tabBarLabel: 'Statistics',
                 tabBarIcon: () => <Icon type='entypo' name='area-graph' color="#fff"/>,
