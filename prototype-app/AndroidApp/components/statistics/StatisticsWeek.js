@@ -18,23 +18,23 @@ export default class StatisticsWeek extends React.Component {
                 <View style={{flex: 1, flexDirection: 'row',}}>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
                         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
-                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
+                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>40%</Text></View>
                     </View>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',}}>
-                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
-                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
+                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Tue</Text></View>
+                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>48%</Text></View>
                     </View>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
-                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
-                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
+                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Wed</Text></View>
+                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>50%</Text></View>
                     </View>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',}}>
-                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
-                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
+                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Thu</Text></View>
+                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>62%</Text></View>
                     </View>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
-                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Mon</Text></View>
-                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>60%</Text></View>
+                        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text>Fri</Text></View>
+                        <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}><Text>53%</Text></View>
                     </View>
                 </View>
                 <View style={{flex: 4,}}>

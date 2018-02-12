@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Dimensions, StyleSheet} from 'react-native';
+import {View, Dimensions, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
 import MapView from 'react-native-maps';
 
@@ -68,8 +68,9 @@ export default class Map extends Component {
         return (
             <View style={{flex: 1}}>
                 <Header
+                    outerContainerStyles={{height: 51, borderBottomColor: '#2ecc71', borderBottomWidth: 2}}
                     backgroundColor="#333"
-                    centerComponent={{text: 'Map', style: {color: '#fff', fontSize: 18}}}
+                    centerComponent={{text: 'MAP', style: {color: '#fff'}}}
                 />
                 <View style={{flex: 1}}>
                     <MapView

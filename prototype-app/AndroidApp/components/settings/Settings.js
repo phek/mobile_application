@@ -18,8 +18,9 @@ export default class Settings extends Component {
         return (
             <View style={{flex: 1}}>
                 <Header
+                    outerContainerStyles={{height: 51, borderBottomColor: '#e67e22', borderBottomWidth: 2}}
                     backgroundColor="#333"
-                    centerComponent={{text: 'Settings', style: {color: '#fff', fontSize: 18}}}
+                    centerComponent={{text: 'SETTINGS', style: {color: '#fff'}}}
                 />
                 <List>
                     {

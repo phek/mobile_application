@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
-import {Header, List, ListItem} from 'react-native-elements'
+import {View, Text, StyleSheet} from 'react-native';
+import {Header} from 'react-native-elements'
 
 export default class Overview extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
                 <Header
+                    outerContainerStyles={{height: 51, borderBottomColor: '#3498db', borderBottomWidth: 2}}
                     backgroundColor="#333"
-                    centerComponent={{text: 'Overview', style: {color: '#fff', fontSize: 18}}}
+                    centerComponent={{text: 'OVERVIEW', style: {color: '#fff'}}}
                 />
-                <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text style={styles.menuText}>Today's Priorities</Text></View>
+                <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text
+                    style={styles.menuText}>Today's Priorities</Text></View>
                 <View style={{flex: 1}}>
                     <View style={{flex: 1, alignItems: 'center'}}>
                         <Text style={styles.text}>Project</Text>
@@ -22,41 +24,97 @@ export default class Overview extends Component {
 
                     </View>
                 </View>
-                <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text style={styles.menuText}>Today's Schedule</Text></View>
+                <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text
+                    style={styles.menuText}>Today's Schedule</Text></View>
                 <View style={{flex: 1.5, borderWidth: 1, borderColor: '#222'}}>
-                    <View style={{flex: 1,justifyContent: 'space-around', alignItems: 'center', flexDirection:'row', backgroundColor: '#ddd'}}>
-                        <Text>8:00</Text>
-                        <Text>Project</Text>
+                    <View style={{
+                        flex: 1,
+                        alignItems: 'center',
+                        flexDirection: 'row',
+                        backgroundColor: '#ddd'
+                    }}>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>08:00 - 10:00</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>Training</Text>
+                        </View>
                     </View>
-                    <View style={{flex: 1,justifyContent: 'space-around', alignItems: 'center', flexDirection:'row'}}>
-                        <Text>10:00</Text>
-                        <Text>Project</Text>
+                    <View style={{flex: 1, alignItems: 'center', flexDirection: 'row'}}>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>10:00 - 12:00</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>School</Text>
+                        </View>
                     </View>
-                    <View style={{flex: 1,justifyContent: 'space-around', alignItems: 'center', flexDirection:'row', backgroundColor: '#ddd'}}>
-                        <Text>12:00</Text>
-                        <Text>Project</Text>
+                    <View style={{
+                        flex: 1,
+                        alignItems: 'center',
+                        flexDirection: 'row',
+                        backgroundColor: '#abdda9'
+                    }}>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>12:00 - 14:00</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>Free Time</Text>
+                        </View>
                     </View>
-                    <View style={{flex: 1,justifyContent: 'space-around', alignItems: 'center', flexDirection:'row'}}>
-                        <Text>14:00</Text>
-                        <Text>Project</Text>
+                    <View style={{flex: 1, alignItems: 'center', flexDirection: 'row'}}>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>14:00 - 16:00</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>Homework</Text>
+                        </View>
                     </View>
-                    <View style={{flex: 1,justifyContent: 'space-around', alignItems: 'center', flexDirection:'row', backgroundColor: '#ddd'}}>
-                        <Text>16:00</Text>
-                        <Text>Project</Text>
+                    <View style={{
+                        flex: 1,
+                        alignItems: 'center',
+                        flexDirection: 'row',
+                        backgroundColor: '#ddd'
+                    }}>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>16:00 - 19:00</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>Project</Text>
+                        </View>
                     </View>
-                    <View style={{flex: 1,justifyContent: 'space-around', alignItems: 'center', flexDirection:'row'}}>
-                        <Text>19:00</Text>
-                        <Text>Project</Text>
+                    <View style={{flex: 1, alignItems: 'center', flexDirection: 'row'}}>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>19:00 - 21:00</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={{textAlign: 'center'}}>Learn Spanish</Text>
+                        </View>
+                    </View>
+                    <View style={{
+                        flex: 1,
+                        alignItems: 'center',
+                        flexDirection: 'row',
+                        backgroundColor: '#ddd'
+                    }}>
+                        <View style={{flex: 1, alignItems: 'center', flexDirection: 'row'}}>
+                            <View style={{flex: 1}}>
+                                <Text style={{textAlign: 'center'}}>21:00 - 23:00</Text>
+                            </View>
+                            <View style={{flex: 1}}>
+                                <Text style={{textAlign: 'center'}}>Free Time</Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
-                <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text style={styles.menuText}>Today's Progress</Text></View>
+                <View style={{height: 50, justifyContent: 'center', alignItems: 'center',}}><Text
+                    style={styles.menuText}>Today's Progress</Text></View>
                 <View style={{flex: 1}}>
-                    <View style={{flex:1}}/>
+                    <View style={{flex: 1}}/>
                     <View style={{flex: 1, flexDirection: 'row', borderWidth: 1, borderColor: '#222'}}>
-                        <View style={{flex: 6, backgroundColor: '#555'}}/>
-                        <View style={{flex: 4,}}/>
+                        <View style={{flex: 2, backgroundColor: '#e35f4f'}}/>
+                        <View style={{flex: 8,}}/>
                     </View>
-                    <View style={{flex:1}}/>
+                    <View style={{flex: 1}}/>
                 </View>
             </View>
         );

@@ -14,10 +14,16 @@ export default class Planning extends Component {
 
     list = [
         {
-            title: 'Work on Website'
+            title: 'Project'
         },
         {
             title: 'Learn Spanish'
+        },
+        {
+            title: 'Training'
+        },
+        {
+            title: 'Homework'
         }
     ];
 
@@ -25,8 +31,9 @@ export default class Planning extends Component {
         return (
             <View style={{flex: 1}}>
                 <Header
+                    outerContainerStyles={{height: 51, borderBottomColor: '#9b59b6', borderBottomWidth: 2}}
                     backgroundColor="#333"
-                    centerComponent={{text: 'Planning', style: {color: '#fff', fontSize: 18}}}
+                    centerComponent={{text: 'PLANNING', style: {color: '#fff'}}}
                 />
                 <Text style={styles.headerText}>Priorities</Text>
                 <List>
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         color: '#333',
-        marginTop: 10,
+        marginTop: 20,
         fontSize: 15,
         fontWeight: 'bold',
         textAlign: 'center'
