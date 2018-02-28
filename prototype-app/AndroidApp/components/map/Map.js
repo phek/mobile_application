@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {View, Dimensions, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
-import MapView from 'react-native-maps';
+import MapView, {Circle} from 'react-native-maps';
 
 const {width, height} = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
-const LATITUDE_DELTA = 0.0922;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+const LATITUDE_DELTA = 0.00007; //0.0922;
+const LONGITUDE_DELTA = 0.00007; //LATITUDE_DELTA * ASPECT_RATIO * 0.5;
 
 export default class Map extends Component {
     constructor(props) {
@@ -82,6 +82,10 @@ export default class Map extends Component {
                                 <View style={styles.marker}/>
                             </View>
                         </MapView.Marker>
+                        <Circle
+                            center={{latitude: 59.404832, longitude: 17.949493}}
+                            radius={80} strokeColor={"rgba(20, 181, 71, 1)"}
+                            fillColor={"rgba(20, 181, 71, 0.15)"}/>
                     </MapView>
                 </View>
             </View>
