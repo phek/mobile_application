@@ -2,6 +2,28 @@ import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 
 export default class StatisticsDay extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data:[]
+        }
+    }
+
+    componentDidMount() {
+        this.getCategoriesFromApi();
+    }
+
+    getCategoriesFromApi(){
+        return fetch('http://84.217.10.60:3000/productivity/categories')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({data: responseJson});
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     render() {
         return (
             <View style={{
@@ -13,38 +35,24 @@ export default class StatisticsDay extends React.Component {
                     <ScrollView style={{flex: 2, backgroundColor: '#cdcdcd'}}>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                                style={styles.text}>9:00</Text></View>
+                                style={styles.text}>{this.state.data.gaming}</Text></View>
                             <View style={{width: 1, backgroundColor: '#afafaf'}}/>
                             <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                                style={styles.text}>Idle</Text></View>
+                                style={styles.text}>Gaming</Text></View>
                         </View>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                                style={styles.text}>10:00</Text></View>
+                                style={styles.text}>{this.state.data.productive}</Text></View>
                             <View style={{width: 1, backgroundColor: '#afafaf'}}/>
                             <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                                style={styles.text}>Project</Text></View>
+                                style={styles.text}>Productive</Text></View>
                         </View>
                         <View style={{flexDirection: 'row'}} padding={10}>
                             <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                                style={styles.text}>12:00</Text></View>
+                                style={styles.text}>{this.state.data.browsing}</Text></View>
                             <View style={{width: 1, backgroundColor: '#afafaf'}}/>
                             <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                                style={styles.text}>Homework</Text></View>
-                        </View>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                                style={styles.text}>15:00</Text></View>
-                            <View style={{width: 1, backgroundColor: '#afafaf'}}/>
-                            <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                                style={styles.text}>Training</Text></View>
-                        </View>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                                style={styles.text}>18:00</Text></View>
-                            <View style={{width: 1, backgroundColor: '#afafaf'}}/>
-                            <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                                style={styles.text}>Idle</Text></View>
+                                style={styles.text}>Browsing</Text></View>
                         </View>
                     </ScrollView>
                 </View>
