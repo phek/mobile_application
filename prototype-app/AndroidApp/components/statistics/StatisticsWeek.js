@@ -2,7 +2,74 @@ import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 
 export default class StatisticsWeek extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            categoryArray: []
+        };
+    }
+
+    componentDidMount() {
+        this.getCategoriesFromApi();
+    }
+
+    getCategoriesFromApi() {
+        fetch('http://84.217.10.60:3000/productivity/processLog')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({data: responseJson});
+                this.sumCategories();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    sumCategories() {
+        let gaming = 0;
+        let productive = 0;
+        let browsing = 0;
+        this.state.data.forEach((value) => {
+            switch (value.type) {
+                case 'gaming':
+                    gaming += this.getTimeInSeconds(value.start, value.stop);
+                    break;
+                case 'productive':
+                    productive += this.getTimeInSeconds(value.start, value.stop);
+                    break;
+                case 'browsing':
+                    browsing += this.getTimeInSeconds(value.start, value.stop);
+                    break;
+            }
+        });
+        let categoryArray =
+        [{name:"gaming",duration:gaming},{name:"productive",duration:productive},{name:"browsing",duration:browsing}];
+
+       this.setState({categoryArray: categoryArray});
+       this.setState({gaming: gaming, productive: productive, browsing: browsing});
+    }
+
+    getTimeInSeconds(start, stop) {
+        return (stop - start) / 1000;
+    }
+
+
     render() {
+
+        let keyInt = 0;
+
+        let activityArr = this.state.categoryArray;
+        let activityList = activityArr.map(activity =>
+            <View key={keyInt++} style={{flexDirection: 'row'}} padding={10}>
+                <View style={{flex: 1}}/>
+                <View style={[styles.activity, {flex: 4, height: 70}]}><Text
+                    style={styles.prioText}>{activity.name}  {Math.round(activity.duration/60)} min</Text></View>
+                <View style={{flex: 1}}/>
+            </View>
+        );
+
         return (
             <View style={{
                 flex: 1,
@@ -13,7 +80,7 @@ export default class StatisticsWeek extends React.Component {
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text
                         style={styles.text}>Productivity</Text></View>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text
-                        style={styles.text}>55%</Text></View>
+                        style={styles.text}>{Math.round((this.state.productive/(this.state.gaming+this.state.browsing))*100)/100}%</Text></View>
                 </View>
                 <View style={{flex: 1, flexDirection: 'row',}}>
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#999'}}>
@@ -39,36 +106,7 @@ export default class StatisticsWeek extends React.Component {
                 </View>
                 <View style={{flex: 4,}}>
                     <ScrollView style={{flex: 1, backgroundColor: '#cdcdcd'}}>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={{flex: 1}}/>
-                            <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.prioText}>Project 10h</Text></View>
-                            <View style={{flex: 1}}/>
-                        </View>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={{flex: 1}}/>
-                            <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.prioText}>Danger Zone 15h</Text></View>
-                            <View style={{flex: 1}}/>
-                        </View>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={{flex: 1}}/>
-                            <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.prioText}>Homework 12h</Text></View>
-                            <View style={{flex: 1}}/>
-                        </View>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={{flex: 1}}/>
-                            <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.prioText}>Workout 10h</Text></View>
-                            <View style={{flex: 1}}/>
-                        </View>
-                        <View style={{flexDirection: 'row'}} padding={10}>
-                            <View style={{flex: 1}}/>
-                            <View style={[styles.activity, {flex: 4, height: 70}]}><Text
-                                style={styles.prioText}>Spanish 4h</Text></View>
-                            <View style={{flex: 1}}/>
-                        </View>
+                        {activityList}
                     </ScrollView>
                 </View>
 

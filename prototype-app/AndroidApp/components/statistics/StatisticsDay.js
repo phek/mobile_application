@@ -39,16 +39,15 @@ export default class StatisticsDay extends React.Component {
         this.state.data.forEach((value) => {
             switch (value.type) {
                 case 'gaming':
-                    gaming = this.getTimeInSeconds(value.start, value.stop);
+                    gaming += this.getTimeInSeconds(value.start, value.stop);
                     break;
                 case 'productive':
-                    productive = this.getTimeInSeconds(value.start, value.stop);
+                    productive += this.getTimeInSeconds(value.start, value.stop);
                     break;
                 case 'browsing':
-                    browsing = this.getTimeInSeconds(value.start, value.stop);
+                    browsing += this.getTimeInSeconds(value.start, value.stop);
                     break;
             }
-            this.getTimeInSeconds(value.start, value.stop)
         });
         if (gaming > productive) {
             if (this.shouldAlert) {
