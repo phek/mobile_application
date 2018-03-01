@@ -31,7 +31,7 @@ export default class StatisticsDay extends React.Component {
         let activityList = activityArr.map( activity =>
         <View key={keyInt++} style={{flexDirection: 'row'}} padding={10}>
             <View style={[styles.activity, {flex: 1, height: 100}]}>
-                <Text style={styles.text}>{Math.round((activity.stop - activity.start)/1000)}</Text>
+                <Text style={styles.text}>{Math.round((activity.stop - activity.start)/1000)/60} min</Text>
             </View>
             <View style={{width: 1, backgroundColor: '#afafaf'}}/>
             <View style={[styles.activity, {flex: 2, height: 100}]}>
