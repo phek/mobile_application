@@ -24,7 +24,7 @@ export default class StatisticsDay extends React.Component {
         }, 1000 * updateInterval);
     }
 
-    getCategoriesFromApi(){
+    getCategoriesFromApi() {
         fetch('http://84.217.10.60:3000/productivity/processLog')
             .then((response) => response.json())
             .then((responseJson) => {
@@ -50,13 +50,13 @@ export default class StatisticsDay extends React.Component {
     render() {
 
         let activityArr = this.state.data;
-        let activityList = activityArr.map( activity => <View style={{flexDirection: 'row'}} padding={10}>
-            <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                style={styles.text}>{Math.round((activity.stop - activity.start)/1000)}</Text></View>
-            <View style={{width: 1, backgroundColor: '#afafaf'}}/>
-            <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                style={styles.text}>{activity.name}</Text></View>
-        </View>
+        let activityList = activityArr.map(activity => <View style={{flexDirection: 'row'}} padding={10}>
+                <View style={[styles.activity, {flex: 1, height: 100}]}><Text
+                    style={styles.text}>{Math.round((activity.stop - activity.start) / 1000)}</Text></View>
+                <View style={{width: 1, backgroundColor: '#afafaf'}}/>
+                <View style={[styles.activity, {flex: 2, height: 100}]}><Text
+                    style={styles.text}>{activity.name}</Text></View>
+            </View>
         );
 
         return (
