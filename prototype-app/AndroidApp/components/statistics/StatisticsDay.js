@@ -33,7 +33,24 @@ export default class StatisticsDay extends React.Component {
     }
 
     isUnproductive() {
-        if (this.state.data.gaming > this.state.data.productive) {
+        let gaming = 0;
+        let productive = 0;
+        let browsing = 0;
+        this.state.data.forEach((value) => {
+            switch (value.type) {
+                case 'gaming':
+                    gaming = this.getTimeInSeconds(value.start, value.stop);
+                    break;
+                case 'productive':
+                    productive = this.getTimeInSeconds(value.start, value.stop);
+                    break;
+                case 'browsing':
+                    browsing = this.getTimeInSeconds(value.start, value.stop);
+                    break;
+            }
+            this.getTimeInSeconds(value.start, value.stop)
+        });
+        if (gaming > productive) {
             if (this.shouldAlert) {
                 scheduleNotification("You seem to be unproductive!");
                 this.shouldAlert = false;
@@ -41,6 +58,10 @@ export default class StatisticsDay extends React.Component {
         } else {
             this.shouldAlert = true;
         }
+    }
+
+    getTimeInSeconds(start, stop) {
+        return (stop - start) / 1000;
     }
 
     render() {
