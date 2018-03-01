@@ -1,27 +1,50 @@
 import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {scheduleNotification} from '../tools/notifications';
 
 export default class StatisticsDay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:[]
+            data: {
+                gaming: 0,
+                productive: 0,
+                browsing: 0
+            }
         }
+        this.shouldAlert = true;
     }
 
     componentDidMount() {
+        const updateInterval = 10; // seconds
+
         this.getCategoriesFromApi();
+        setInterval(() => {
+            this.getCategoriesFromApi();
+        }, 1000 * updateInterval);
     }
 
-    getCategoriesFromApi(){
-        return fetch('http://84.217.10.60:3000/productivity/categories')
+    getCategoriesFromApi() {
+        fetch('http://84.217.10.60:3000/productivity/categories')
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({data: responseJson});
+                this.isUnproductive();
             })
             .catch((error) => {
                 console.error(error);
             });
+    }
+
+    isUnproductive() {
+        if (this.state.data.gaming > this.state.data.productive) {
+            if (this.shouldAlert) {
+                scheduleNotification("You seem to be unproductive!");
+                this.shouldAlert = false;
+            }
+        } else {
+            this.shouldAlert = true;
+        }
     }
 
     render() {

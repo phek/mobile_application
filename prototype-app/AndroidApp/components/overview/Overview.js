@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {scheduleNotification} from '../tools/notifications';
 import Header from "react-native-elements/src/header/Header";
 
 export default class Overview extends Component {
-    componentDidMount() {
-        scheduleNotification("Hi", 10);
-    }
-
     render() {
         return (
             <View style={{flex: 1}}>

@@ -8,7 +8,7 @@ PushNotification.configure({
     requestPermissions: true
 });
 
-export function scheduleNotification(message, sec) {
+export function scheduleNotification(message, sec = 0) {
     const notification = {
         message: message,
         playSound: false,
