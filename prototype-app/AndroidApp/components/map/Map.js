@@ -86,6 +86,10 @@ export default class Map extends Component {
                             center={{latitude: 59.404832, longitude: 17.949493}}
                             radius={80} strokeColor={"rgba(20, 181, 71, 1)"}
                             fillColor={"rgba(20, 181, 71, 0.15)"}/>
+                        <Circle
+                            center={{latitude: 59.404936, longitude: 17.941934}}
+                            radius={50} strokeColor={"rgba(255, 37, 37, 1)"}
+                            fillColor={"rgba(255, 37, 37, 0.15)"}/>
                     </MapView>
                 </View>
             </View>

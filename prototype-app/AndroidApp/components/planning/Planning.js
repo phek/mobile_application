@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import {Header, CheckBox, List, ListItem} from 'react-native-elements'
+import {Header, CheckBox, List, ListItem, FormLabel, FormInput} from 'react-native-elements'
 
 export default class Planning extends Component {
 
@@ -8,6 +8,7 @@ export default class Planning extends Component {
         super(props);
         this.state = {
             checked: false,
+            itemName: "",
             list: [
                 {
                     id: this.generateRandomID(),
@@ -42,20 +43,26 @@ export default class Planning extends Component {
     );
 
     addItem() {
-        const items = [
-            'Project',
-            'Learn Spanish',
-            'Training',
-            'Homework'
-        ];
+        let name;
+        if (this.state.itemName === "") {
+            const items = [
+                'Project',
+                'Learn Spanish',
+                'Training',
+                'Homework'
+            ];
 
-        const item = items[Math.floor(Math.random() * items.length)];
+            name = items[Math.floor(Math.random() * items.length)];
+        } else {
+            name = this.state.itemName;
+        }
         this.setState({
             list: this.state.list.concat({
                 id: this.generateRandomID(),
-                title: item
+                title: name
             })
         });
+        this.input.clearText();
     }
 
     removeItem(id) {
@@ -83,9 +90,11 @@ export default class Planning extends Component {
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </List>
+                <FormLabel>New Priority:</FormLabel>
+                <FormInput ref={input => this.input = input} onChangeText={(text) => this.setState({itemName: text})}/>
                 <CheckBox
                     center
-                    title='Add item'
+                    title='Add priority'
                     iconRight
                     iconType='material'
                     checkedIcon='clear'
