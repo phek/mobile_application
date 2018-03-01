@@ -6,11 +6,7 @@ export default class StatisticsDay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {
-                gaming: 0,
-                productive: 0,
-                browsing: 0
-            }
+            data: []
         };
         this.shouldAlert = true;
     }
@@ -48,14 +44,17 @@ export default class StatisticsDay extends React.Component {
     }
 
     render() {
-
+        let keyInt = 0;
         let activityArr = this.state.data;
-        let activityList = activityArr.map(activity => <View style={{flexDirection: 'row'}} padding={10}>
-                <View style={[styles.activity, {flex: 1, height: 100}]}><Text
-                    style={styles.text}>{Math.round((activity.stop - activity.start) / 1000)}</Text></View>
+        let activityList = activityArr.map(activity =>
+            <View key={keyInt++} style={{flexDirection: 'row'}} padding={10}>
+                <View style={[styles.activity, {flex: 1, height: 100}]}>
+                    <Text style={styles.text}>{Math.round((activity.stop - activity.start) / 1000)}</Text>
+                </View>
                 <View style={{width: 1, backgroundColor: '#afafaf'}}/>
-                <View style={[styles.activity, {flex: 2, height: 100}]}><Text
-                    style={styles.text}>{activity.name}</Text></View>
+                <View style={[styles.activity, {flex: 2, height: 100}]}>
+                    <Text style={styles.text}>{activity.name}</Text>
+                </View>
             </View>
         );
 
