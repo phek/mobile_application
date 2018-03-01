@@ -12,7 +12,7 @@ export default class StatisticsDay extends React.Component {
     }
 
     componentDidMount() {
-        const updateInterval = 10; // seconds
+        const updateInterval = 2; // seconds
 
         this.getCategoriesFromApi();
         setInterval(() => {
@@ -85,6 +85,7 @@ export default class StatisticsDay extends React.Component {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
             }}>
+                <Text style={styles.title}>Wednesday</Text>
                 <View style={{flex: 4, flexDirection: 'row', backgroundColor: '#dbdbdb'}}>
                     <ScrollView style={{flex: 2, backgroundColor: '#cdcdcd'}}>
                         {activityList}
@@ -101,6 +102,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    title: {
+        alignItems: 'center',
+        fontSize: 20,
+        justifyContent: 'center',
+        color: '#222',
+        backgroundColor: '#cdcdcd',
+        padding: 10,
+        textAlign: 'center'
     },
     text: {
         color: '#cdcdcd'

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
-import {Header, CheckBox, List, ListItem, FormLabel, FormInput} from 'react-native-elements'
+import {View, Text, StyleSheet, FlatList, Modal} from 'react-native';
+import {Header, CheckBox, List, ListItem, FormLabel, FormInput, Button} from 'react-native-elements'
 
 export default class Planning extends Component {
 
@@ -9,6 +9,7 @@ export default class Planning extends Component {
         this.state = {
             checked: false,
             itemName: "",
+            modalVisible: false,
             list: [
                 {
                     id: this.generateRandomID(),
@@ -63,6 +64,7 @@ export default class Planning extends Component {
             })
         });
         this.input.clearText();
+        this.setModalVisible(false);
     }
 
     removeItem(id) {
@@ -71,6 +73,10 @@ export default class Planning extends Component {
                 return item.id !== id
             })
         })
+    }
+
+    setModalVisible(visible) {
+        this.setState({modalVisible: visible});
     }
 
     render() {
@@ -90,8 +96,22 @@ export default class Planning extends Component {
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </List>
-                <FormLabel>New Priority:</FormLabel>
-                <FormInput ref={input => this.input = input} onChangeText={(text) => this.setState({itemName: text})}/>
+                <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                        this.setModalVisible(!this.state.modalVisible)
+                    }}>
+                    <FormLabel>New Priority:</FormLabel>
+                    <FormInput ref={input => this.input = input}
+                               onChangeText={(text) => this.setState({itemName: text})}/>
+
+                    <Button
+                        title='Add priority'
+                        onPress={() => this.addItem()}
+                    />
+                </Modal>
                 <CheckBox
                     center
                     title='Add priority'
@@ -102,7 +122,7 @@ export default class Planning extends Component {
                     checkedColor='red'
                     containerStyle={styles.addButton}
                     checked={this.state.checked}
-                    onPress={() => this.addItem()}
+                    onPress={() => this.setModalVisible(!this.state.modalVisible)}
                 />
             </View>
         );
